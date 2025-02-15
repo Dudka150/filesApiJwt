@@ -29,7 +29,6 @@ class AuthController extends Controller
         return response()->json(['message' => 'User created successfully'], 201);
     }
 
-    // **Авторизация пользователя**
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -40,7 +39,7 @@ class AuthController extends Controller
 
         return response()->json([
             'token' => $token,
-            'expires_in' => JWTAuth::factory()->getTTL() * 60 // правильно вызываем метод getTTL()
+            'expires_in' => JWTAuth::factory()->getTTL() * 60 
         ]);
     }
 
